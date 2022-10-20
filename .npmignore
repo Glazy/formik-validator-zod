@@ -1,0 +1,5 @@
+.husky/
+.prettierrc.json
+lib/
+test/
+tsconfig.json

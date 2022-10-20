@@ -1,0 +1,12 @@
+{
+  "include": ["lib"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./dist"
+  }
+}
