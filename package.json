@@ -1,8 +1,9 @@
 {
   "name": "formik-validator-zod",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Helper to simplify validating Formik values with Zod",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "husky install",
     "build": "tsc",
