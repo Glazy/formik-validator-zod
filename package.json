@@ -1,7 +1,8 @@
 {
   "name": "formik-validator-zod",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Helper to simplify validating Formik values with Zod",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -16,7 +17,7 @@
     "schema",
     "validation"
   ],
-  "author": "Luke Glazebrook <Glazy@users.noreply.github.com> (https://glazebrook.dev)",
+  "author": "Luke Glazebrook <Glazy@users.noreply.github.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/glazy/formik-validator-zod.git"

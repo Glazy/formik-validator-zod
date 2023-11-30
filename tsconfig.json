@@ -2,8 +2,8 @@
   "include": ["lib"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "target": "ES5",
-    "module": "CommonJS",
+    "target": "ES6",
+    "module": "NodeNext",
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
