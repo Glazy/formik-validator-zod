@@ -28,6 +28,7 @@ describe('withZodSchema', () => {
   it('returns union errors correctly', () => {
     const result = withZodSchema(testSchema)({
       name: 'Luke',
+      // @ts-ignore This is incorrect on purpose as part of the test case.
       favouriteValue: true,
     })
 
