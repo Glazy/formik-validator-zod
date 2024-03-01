@@ -1,0 +1,6 @@
+{
+  "name": "@glazy/formik-validator-zod",
+  "version": "2.0.0",
+  "exports": "./lib/index.ts",
+  "exclude": ["test/**", "package-lock.json", "tsconfig.json"]
+}
