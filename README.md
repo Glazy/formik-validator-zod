@@ -10,10 +10,27 @@ this package.
 
 ## Installation
 
+This package is published both on [NPM](https://www.npmjs.com) and
+[JSR](https://jsr.io/).
+
+To install from NPM:
+
 ```sh
 npm install formik-validator-zod
 
 yarn add formik-validator-zod
+
+bun add formik-validator-zod
+```
+
+To install from JSR:
+
+```sh
+npx jsr add @glazy/formik-validator-zod
+
+yarn dlx jsr add @glazy/formik-validator-zod
+
+bunx jsr add @glazy/formik-validator-zod
 ```
 
 ## Example
