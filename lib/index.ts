@@ -1,4 +1,5 @@
-import type { ZodSchema, ParseParams } from 'zod'
+import { FormikErrors } from 'formik'
+import type { ParseParams, ZodType, ZodTypeAny } from 'zod'
 
 /**
  * Allows you to easily use Zod schemas with the <Formik /> component `validate`
@@ -8,18 +9,23 @@ import type { ZodSchema, ParseParams } from 'zod'
  * <Formik {...} validate={withZodSchema(yourSchema)}>
  * ```
  */
-export const withZodSchema =
-  <T>(schema: ZodSchema<T>, params?: Partial<ParseParams>) =>
-  (values: T): Partial<T> => {
-    const result = schema.safeParse(values, params)
+type ValidateFn = (values: any) => void | object | Promise<FormikErrors<any>>
 
-    if (result.success) return {}
+export const withZodSchema = <T extends ZodType = ZodTypeAny>(
+  schema: T,
+  params?: Partial<ParseParams>
+): ValidateFn => {
+  return (values: any): void | object | Promise<FormikErrors<any>> => {
+    const validation = schema.safeParse(values, params)
 
-    return result.error.issues.reduce((acc, curr) => {
+    if (validation.success) return
+
+    return validation.error.issues.reduce((acc, curr) => {
       const key = curr.path.join('.')
       return {
         ...acc,
         [key]: curr.message,
       }
-    }, {})
+    })
   }
+}
