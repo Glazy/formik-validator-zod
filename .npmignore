@@ -1,4 +1,5 @@
 .husky/
+.github/
 .prettierrc.json
 lib/
 test/
