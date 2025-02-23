@@ -1,6 +1,6 @@
 {
   "name": "formik-validator-zod",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Helper to simplify validating Formik values with Zod",
   "type": "module",
   "main": "dist/index.js",
@@ -34,5 +34,8 @@
   "peerDependencies": {
     "formik": "^2.2.9",
     "zod": "^3.19.1"
+  },
+  "dependencies": {
+    "deepmerge": "^4.3.1"
   }
 }

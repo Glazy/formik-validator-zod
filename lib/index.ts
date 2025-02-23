@@ -1,4 +1,5 @@
 import type { ZodSchema, ParseParams } from 'zod'
+import merge from 'deepmerge'
 
 /**
  * Allows you to easily use Zod schemas with the <Formik /> component `validate`
@@ -16,7 +17,21 @@ export const withZodSchema =
     if (result.success) return {}
 
     return result.error.issues.reduce((acc, curr) => {
-      const key = curr.path.join('.')
+      if (curr.path.length) {
+        return merge(
+          acc,
+          curr.path.reduceRight(
+            (errors, pathSegment) => ({
+              [pathSegment]: !Object.keys(errors).length
+                ? curr.message
+                : errors,
+            }),
+            {}
+          )
+        )
+      }
+
+      const key = curr.path[0]
       return {
         ...acc,
         [key]: curr.message,
