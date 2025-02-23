@@ -3,37 +3,25 @@
 Allows you to easily validate [Formik](https://github.com/jaredpalmer/formik)
 forms with the power of [Zod](https://github.com/colinhacks/zod) schemas.
 
-WARNING: As of v2, this package uses native ESM and no longer provides a
-CommonJS export. If this is something you need, you should be able to use the
-[dynamic import](https://v8.dev/features/dynamic-import) function or use v1 of
-this package.
+As of v2.0, this package uses ESM and no longer provides a CommonJS export. If
+this is something you need, you should be able to use the
+[dynamic import](https://v8.dev/features/dynamic-import) function.
 
 ## Installation
-
-This package is published both on [NPM](https://www.npmjs.com) and
-[JSR](https://jsr.io/).
 
 To install from NPM:
 
 ```sh
 npm install formik-validator-zod
 
+pnpm add formik-validator-zod
+
 yarn add formik-validator-zod
 
 bun add formik-validator-zod
 ```
 
-To install from JSR:
-
-```sh
-npx jsr add @glazy/formik-validator-zod
-
-yarn dlx jsr add @glazy/formik-validator-zod
-
-bunx jsr add @glazy/formik-validator-zod
-```
-
-## Example
+## Usage
 
 ```jsx
 import { Formik } from 'formik'
@@ -54,3 +42,12 @@ const MyForm = () => {
   )
 }
 ```
+
+## Is this library still maintained?
+
+Yes! This library is used in a couple of production codebases that I'm aware of,
+including my current employers.
+
+I don't expect the library will need a lot of active maintenance going forwards.
+This is due to its limited scope and the fact Formik itsely seems to be
+abandoned.
