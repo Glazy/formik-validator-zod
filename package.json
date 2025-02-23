@@ -34,8 +34,5 @@
   "peerDependencies": {
     "formik": "^2.2.9",
     "zod": "^3.19.1"
-  },
-  "dependencies": {
-    "deepmerge": "^4.3.1"
   }
 }
