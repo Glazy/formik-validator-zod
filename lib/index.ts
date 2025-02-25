@@ -17,24 +17,14 @@ export const withZodSchema =
     if (result.success) return {}
 
     return result.error.issues.reduce((acc, curr) => {
-      if (curr.path.length) {
-        return merge(
-          acc,
-          curr.path.reduceRight(
-            (errors, pathSegment) => ({
-              [pathSegment]: !Object.keys(errors).length
-                ? curr.message
-                : errors,
-            }),
-            {}
-          )
+      return merge(
+        acc,
+        curr.path.reduceRight(
+          (errors, pathSegment) => ({
+            [pathSegment]: !Object.keys(errors).length ? curr.message : errors,
+          }),
+          {}
         )
-      }
-
-      const key = curr.path[0]
-      return {
-        ...acc,
-        [key]: curr.message,
-      }
+      )
     }, {})
   }
