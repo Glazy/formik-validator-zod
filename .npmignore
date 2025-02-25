@@ -3,4 +3,5 @@
 .prettierrc.json
 lib/
 test/
-tsconfig.json
+tsconfig.*.json
+
