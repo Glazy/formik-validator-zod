@@ -2,11 +2,8 @@
   "include": ["lib"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "target": "ES6",
-    "module": "NodeNext",
-    "declaration": true,
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "./dist"
+    "moduleResolution": "node"
   }
 }
