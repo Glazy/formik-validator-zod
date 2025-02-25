@@ -3,10 +3,6 @@
 Allows you to easily validate [Formik](https://github.com/jaredpalmer/formik)
 forms with the power of [Zod](https://github.com/colinhacks/zod) schemas.
 
-As of v2.0, this package uses ESM and no longer provides a CommonJS export. If
-this is something you need, you should be able to use the
-[dynamic import](https://v8.dev/features/dynamic-import) function.
-
 ## Installation
 
 To install from NPM:
