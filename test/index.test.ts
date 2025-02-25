@@ -54,7 +54,7 @@ describe('withZodSchema', () => {
         },
       })
 
-      expect(Object.keys(result).length).toEqual(0)
+      expect(result).toStrictEqual({})
     })
 
     it('returns field error if no children have errors', () => {
@@ -99,7 +99,7 @@ describe('withZodSchema', () => {
         favouriteColours: ['Yellow', 'Blue', 'Purple', 'Red'],
       })
 
-      expect(Object.keys(result).length).toEqual(0)
+      expect(result).toStrictEqual({})
     })
 
     it('returns error in array correctly', () => {
@@ -134,7 +134,7 @@ describe('withZodSchema', () => {
         ],
       })
 
-      expect(Object.keys(result).length).toEqual(0)
+      expect(result).toStrictEqual({})
     })
 
     it('returns field error if no children have errors', () => {
