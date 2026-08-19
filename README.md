@@ -41,9 +41,4 @@ const MyForm = () => {
 
 ## Is this library still maintained?
 
-Yes! This library is used in a couple of production codebases that I'm aware of,
-including my current employers.
-
-I don't expect the library will need a lot of active maintenance going forwards.
-This is due to its limited scope and the fact Formik itself seems to be
-abandoned.
+No. The codebases I work in no longer use Formik, so this library works for Zod 3 but does not work for Zod 4.
