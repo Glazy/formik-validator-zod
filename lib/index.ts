@@ -1,5 +1,7 @@
-import type { ZodSchema, ParseParams } from 'zod'
+import type { ZodType } from 'zod'
 import merge from 'deepmerge'
+
+type ParseParams = Parameters<ZodType['safeParse']>[1]
 
 /**
  * Allows you to easily use Zod schemas with the <Formik /> component `validate`
@@ -10,7 +12,7 @@ import merge from 'deepmerge'
  * ```
  */
 export const withZodSchema =
-  <T>(schema: ZodSchema<T>, params?: Partial<ParseParams>) =>
+  <T>(schema: ZodType<T>, params?: ParseParams) =>
   (values: T): Partial<T> => {
     const result = schema.safeParse(values, params)
 
