@@ -1,4 +1,7 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# This workflow will run tests using node and then publish a package to npm when a release is created.
+# Publishing uses npm trusted publishing (OIDC), so no NPM_TOKEN secret is needed. The trusted
+# publisher must be configured once on npmjs.com for this package:
+#   https://docs.npmjs.com/trusted-publishers
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
 name: Node.js Package
@@ -11,24 +14,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
+          cache: 'npm'
       - run: npm ci
       - run: npm test
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
+          cache: 'npm'
           registry-url: https://registry.npmjs.org/
+      # Trusted publishing requires npm 11.5.1 or newer.
+      - run: npm install -g npm@latest
       - run: npm ci
       - run: npm run build
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: npm publish --provenance --access public
