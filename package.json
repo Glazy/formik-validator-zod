@@ -25,7 +25,7 @@
   "author": "Luke Glazebrook <Glazy@users.noreply.github.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/glazy/formik-validator-zod.git"
+    "url": "git+https://github.com/Glazy/formik-validator-zod.git"
   },
   "license": "MIT",
   "devDependencies": {
