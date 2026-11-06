@@ -25,7 +25,7 @@ import { z } from 'zod'
 import { withZodSchema } from 'formik-validator-zod'
 
 const mySchema = z.object({
-  email: z.string().email(),
+  email: z.email(),
   name: z.string(),
   age: z.number(),
 })
@@ -39,6 +39,17 @@ const MyForm = () => {
 }
 ```
 
+## Zod version support
+
+| formik-validator-zod | Zod       |
+| -------------------- | --------- |
+| `3.x`                | `^4.0.0`  |
+| `2.x`                | `^3.19.1` |
+
+Version 3 of this library targets Zod 4. If you are still on Zod 3, stay on
+`formik-validator-zod@2`.
+
 ## Is this library still maintained?
 
-No. The codebases I work in no longer use Formik, so this library works for Zod 3 but does not work for Zod 4.
+Yes. The library is small and stable, and it is kept up to date with new Zod
+releases. Issues and pull requests are welcome.

@@ -22,7 +22,7 @@ describe('withZodSchema', () => {
     const result = withZodSchema(testSchema)({ name: 'X', favouriteValue: 42 })
 
     expect(result).toStrictEqual({
-      name: 'String must contain at least 2 character(s)',
+      name: 'Too small: expected string to have >=2 characters',
     })
   })
 
@@ -61,7 +61,9 @@ describe('withZodSchema', () => {
       // @ts-ignore Type incorrect for usage in test case.
       const result = withZodSchema(schema)({})
 
-      expect(getIn(result, 'user')).toEqual('Required')
+      expect(getIn(result, 'user')).toEqual(
+        'Invalid input: expected object, received undefined'
+      )
     })
 
     it('returns object errors correctly', () => {
@@ -73,9 +75,9 @@ describe('withZodSchema', () => {
       })
 
       expect(getIn(result, 'user.name')).toEqual(
-        'String must contain at least 2 character(s)'
+        'Too small: expected string to have >=2 characters'
       )
-      expect(getIn(result, 'user.email')).toEqual('Invalid email')
+      expect(getIn(result, 'user.email')).toEqual('Invalid email address')
     })
   })
 
@@ -90,7 +92,7 @@ describe('withZodSchema', () => {
       })
 
       expect(getIn(result, 'favouriteColours')).toEqual(
-        'Array must contain at least 3 element(s)'
+        'Too small: expected array to have >=3 items'
       )
     })
 
@@ -110,7 +112,7 @@ describe('withZodSchema', () => {
 
       expect(getIn(result, 'favouriteColours.1')).toBeUndefined()
       expect(getIn(result, 'favouriteColours.2')).toEqual(
-        'Expected string, received number'
+        'Invalid input: expected string, received number'
       )
     })
   })
@@ -143,7 +145,7 @@ describe('withZodSchema', () => {
       })
 
       expect(getIn(result, 'footballTeams')).toEqual(
-        'Array must contain at least 2 element(s)'
+        'Too small: expected array to have >=2 items'
       )
     })
 
@@ -156,15 +158,15 @@ describe('withZodSchema', () => {
       })
 
       expect(getIn(result, 'footballTeams[0].name')).toEqual(
-        'Invalid input: must end with "FC"'
+        'Invalid string: must end with "FC"'
       )
       expect(getIn(result, 'footballTeams[0].manager')).toEqual(
-        'String must contain at least 2 character(s)'
+        'Too small: expected string to have >=2 characters'
       )
 
       expect(getIn(result, 'footballTeams[1].name')).toBeUndefined()
       expect(getIn(result, 'footballTeams[1].manager')).toEqual(
-        'String must contain at least 2 character(s)'
+        'Too small: expected string to have >=2 characters'
       )
     })
   })
