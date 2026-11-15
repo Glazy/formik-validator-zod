@@ -1,6 +1,6 @@
 {
   "name": "formik-validator-zod",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Helper to simplify validating Formik values with Zod",
   "type": "module",
   "types": "./dist/esm/index.d.ts",
